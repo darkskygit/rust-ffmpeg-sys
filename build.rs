@@ -1035,7 +1035,7 @@ fn main() {
         vec![search().join("include")]
     }
     // Use prebuilt library
-    else if let Ok(ffmpeg_dir) = env::var("FFMPEG_DIR").or(env::var("DEP_FFMPEG_LIBRARY")) {
+    else if let Ok(ffmpeg_dir) = env::var("FFMPEG_DIR").or(env::var("DEP_FFMPEG_STATIC_LIBRARY")) {
         let ffmpeg_dir = PathBuf::from(ffmpeg_dir);
         if ffmpeg_dir.join("lib/amd64").exists()
             && env::var("CARGO_CFG_TARGET_ARCH").as_deref() == Ok("x86_64")
